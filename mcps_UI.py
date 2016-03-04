@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Calculates the path of a particle in a magnetic field.
+"""User interfaces for Magnetic Cloak Particle Simulation.
 
 This code was written for Python 3 and tested using Python 3.5.0
 (64-bit) with Anaconda 2.4.0 (64-bit) on a computer running Ubuntu 14.04
@@ -28,39 +28,44 @@ __status__ = 'Development'
 
 # Custom modules.
 #from coordinate_converter import *
-import mcps_UI as UI
 
 # ======================================================================
-# Define main function.
+# Interminal user interface.
 # ======================================================================
 
-def main():
-    # Print script name, file name, and version.
-    print('\n' + '='*80 + '\n'*2
-        + 'Magnetic Cloak Particle Simulation'.center(80, ' ') + '\n'
-        + __file__.center(80, ' ') + ('v ' + __version__).center(80, ' ')
-        + '\n'*2 + '='*80 + '\n')
-    # Prompt user for desired UI.
-    key_UI = int(prompt('Select user interface:', UI.dict))
-    UI.dict[key_UI]()
-    return 0
+def terminal():
+    """Terminal based user interface.
+    
+    ...instructions or something go here...
+    """
+    print('The function "terminal()" has not been implemented yet.')
+    return -1
 
 # ======================================================================
-# Define prompt function.
+# Batch file processing user interface.
 # ======================================================================
 
-def prompt(p, opt_dict):
-    print(p)
-    for k in sorted(opt_dict):
-        print('    ' + str(k) + ' : ' + opt_dict[k].__doc__.split('\n', 1)[0])
-    #for k, v in opt_dict.items():
-    #    print('    ' + str(k) + ' : ' + v.__doc__.split('\n', 1)[0])
-    key = input('\n>>> ')
-    print()
-    return key
+def batch():
+    """Batch file based user interface.
+    
+    ...instructions or something go here...
+    """
+    print('The function "batch()" has not been implemented yet.')
+    return -1
 
 # ======================================================================
-# Run main function.
+# Graphical user interface.
 # ======================================================================
 
-main()
+def GUI():
+    """Graphical user interface."""
+    print('The function "GUI()" has not been implemented yet.')
+    return -1
+
+# ======================================================================
+# User interface dictionary.
+# ======================================================================
+
+dict = {0 : terminal,
+        1 : batch,
+        2 : GUI}
