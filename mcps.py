@@ -42,8 +42,8 @@ def main():
         + __file__.center(80, ' ') + ('v ' + __version__).center(80, ' ')
         + '\n'*2 + '='*80 + '\n')
     # Prompt user for desired UI.
-    key_UI = int(prompt.prompt('Select user interface:', UI.dict))
-    UI.dict[key_UI]()
+    key_UI = int(prompt.prompt('Select user interface:', UI.dictionary))
+    UI.dictionary[key_UI]()
     return 0
 
 # ======================================================================

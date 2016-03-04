@@ -28,28 +28,27 @@ __status__ = 'Development'
 
 # Custom modules.
 #from coordinate_converter import *
+import mcps_prompt as prompt
+import mcps_method as method
 
 # ======================================================================
 # Interminal user interface.
 # ======================================================================
 
 def terminal():
-    """Terminal based user interface.
-    
-    ...instructions or something go here...
-    """
-    print('The function "terminal()" has not been implemented yet.')
-    return -1
+    """Terminal based user interface."""
+    method_key = prompt.prompt(
+        "Select method of solving differential equations:",
+        method.dictionary)
+    step = method.dictionary[method_key]
+    return 0
 
 # ======================================================================
 # Batch file processing user interface.
 # ======================================================================
 
 def batch():
-    """Batch file based user interface.
-    
-    ...instructions or something go here...
-    """
+    """Batch file based user interface."""
     print('The function "batch()" has not been implemented yet.')
     return -1
 
@@ -66,6 +65,6 @@ def GUI():
 # User interface dictionary.
 # ======================================================================
 
-dict = {0 : terminal,
-        1 : batch,
-        2 : GUI}
+dictionary = {0 : terminal,
+              1 : batch,
+              2 : GUI}
