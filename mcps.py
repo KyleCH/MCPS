@@ -29,6 +29,7 @@ __status__ = 'Development'
 # Custom modules.
 #from coordinate_converter import *
 import mcps_UI as UI
+import mcps_prompt as prompt
 
 # ======================================================================
 # Define main function.
@@ -41,23 +42,9 @@ def main():
         + __file__.center(80, ' ') + ('v ' + __version__).center(80, ' ')
         + '\n'*2 + '='*80 + '\n')
     # Prompt user for desired UI.
-    key_UI = int(prompt('Select user interface:', UI.dict))
+    key_UI = int(prompt.prompt('Select user interface:', UI.dict))
     UI.dict[key_UI]()
     return 0
-
-# ======================================================================
-# Define prompt function.
-# ======================================================================
-
-def prompt(p, opt_dict):
-    print(p)
-    for k in sorted(opt_dict):
-        print('    ' + str(k) + ' : ' + opt_dict[k].__doc__.split('\n', 1)[0])
-    #for k, v in opt_dict.items():
-    #    print('    ' + str(k) + ' : ' + v.__doc__.split('\n', 1)[0])
-    key = input('\n>>> ')
-    print()
-    return key
 
 # ======================================================================
 # Run main function.
