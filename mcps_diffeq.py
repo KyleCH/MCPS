@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""User interfaces for Magnetic Cloak Particle Simulation.
+"""Differential equations for Magnetic Cloak Particle Simulation.
 
 This code was written for Python 3 and tested using Python 3.5.0
 (64-bit) with Anaconda 2.4.0 (64-bit) on a computer running Ubuntu 14.04
@@ -21,55 +21,38 @@ __status__ = 'Development'
 # ======================================================================
 
 # Third party modules.
-#import numpy as np
-#import scipy.constants as const
-
-# Custom modules.
-#from coordinate_converter import *
-import mcps_prompt as prompt
-import mcps_method as method
-import mcps_diffeq as diffeq
+import numpy as np
 
 # ======================================================================
-# Interminal user interface.
+# Classical Lorentz force.
 # ======================================================================
 
-def terminal():
-    """Terminal based user interface."""
-    # Method (step).
-    method_key = prompt.prompt(
-        "Select method of solving differential equations:",
-        method.dictionary)
-    step = method.dictionary[method_key]
-    # Differential equation (f).
-    diffeq_key = prompt.prompt(
-        "Select differential equation:",
-        diffeq.dictionary)
-    f = diffeq.dictionary[diffeq_key]
-    return 0
+def Lorentz_c(t, y):
+    """Lorentz force on a classical particle."""
+    return np.append(
+        y[3:6],
+        qm * (E(t, y[0:3]) + np.cross(y[3:6], B(t, y[0:3]))))
 
 # ======================================================================
-# Batch file processing user interface.
+# Relativistic Lorentz force.
 # ======================================================================
 
-def batch():
-    """Batch file based user interface."""
-    print('The function "batch()" has not been implemented yet.')
-    return -1
+#def Lorentz_r(t, y):
+#    """Lorentz force on a relativistic particle."""
+#    return
 
 # ======================================================================
-# Graphical user interface.
+# Lorentz four-force.
 # ======================================================================
 
-def GUI():
-    """Graphical user interface."""
-    print('The function "GUI()" has not been implemented yet.')
-    return -1
+#def Lorentz_4(t, y)
+#    """Lorentz four-force on a particle."""
+#    return
 
 # ======================================================================
-# User interface dictionary.
+# Differential equation dictionary.
 # ======================================================================
 
-dictionary = {0 : terminal,
-              1 : batch,
-              2 : GUI}
+dictionary = {'LorC' : Lorentz_c,
+#              'LorR' : Lorentz_r,
+              }
